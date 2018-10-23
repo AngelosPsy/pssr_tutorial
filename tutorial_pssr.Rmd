@@ -1,0 +1,86 @@
+---
+title: "Tutorial for the pssr R package"
+output: html_document
+author: "Angelos-Miltiadis Krypotos & Gaetan Mertens"
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+This document provides a brief tutorial for the [pssr](https://github.com/AngelosPsy/pssr) R package. The package provides a suite of functions for preregistrating and sharing data/materials. Although it was initially designed as an easy-to-use tool for experimental psychopathologists and other researchers in clinical psychology, it can be used from any researcher running experimental studies.
+
+The rationale behind the design of the package can be found in the pre-print [A Step-By-Step Guide on Preregistration and Effective Data Sharing for Psychopathology Research](https://osf.io/yvnfj/). 
+
+
+# Installation instructions
+Before installing the software, make sure that you have the most recent versions of the following software installed: [R](https://cran.r-project.org), [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and [git](https://git-scm.com/]), [pandoc](https://github.com/jgm/pandoc). You can also chose between installing [MikTex](https://miktex.org/download) or [tinytex](https://yihui.name/tinytex/).
+
+After that, start a new R session and paste the following commands in the R console.
+
+```{r eval = FALSE}
+if(!require(devtools)) { install.packages("devtools") } # Install devtools incase it is not installed
+devtools::install_github("AngelosPsy/pssr")
+```
+If everything went as planned, the software is now ready to be used.
+
+# Initiating a pssr session
+The main function is the  pssr::shiny_app() which initiates a new [shiny](https://shiny.rstudio.com/) session. As in any other function in R, just paste
+
+```{r  eval = FALSE}
+pssr::shiny_app()
+```
+
+in the R console. After doing that, a new window will appear. We now explain each tab of the software.
+
+# Create project Tab
+For creating a new project, navigate to the 'Create project'. Then, place a name in the 'Project name' box and click on the 'Create new project'. 
+In case you want to reopen an existing project, the user can just click on the 'Find existing project' box and navigate to an existing project. 
+In case a folder is selected that was not created by the $pssr$, the program returns a warning. 
+
+When a project folder is created, the program automatically creates a directory with the project's name. Inside the directory the following subdirectories
+are created: "analyses", "data", "manuscript", "material", and "preregistration". 
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/cp.png") 
+```
+
+# Preregistration Tab
+For creating a preregistration document, you can enter a name in the "Enter name of the preregistration". Then, choose template you want to use so as
+to form your preregistration. The pssr software supports 3 templates. These are the 'pss', the 'aspredicted' from the [aspredicted](aspredicted.org) website,
+and the 'osf' from the (osf)[osf.io] website. In case the 'pss' template is selected, then a new tab is presented, with each tab now having different boxes
+for every different piece of information that needs to be preregistrated (e.g., methods, statistical analyses). We describe more about this type of information
+in our paper.
+
+In case the 'aspredicted' or the 'osf' template are selected, then a new window will appear. The user then can use manipulate the text using the (Rmarkdown)[https://rmarkdown.rstudio.com] template. For these templates, we use the (prereg)[https://cran.r-project.org/web/packages/prereg/index.html] package
+authored by (Frederik Aust)[https://github.com/crsh]. 
+
+## Generate a pdf of the pregistration file
+Under 'Preregistration' press 'Choose files'. On the pop up window, go to the 'preregistration' folder. Inside that folder, select the
+'.Rmd' file with the name of the preregistration file you want to manipulate and click on 'Select'. After that, click on the 'Create PDF's'.
+Then the pdf files of the preregistration files are now being saved in the 'preregistration' folder.
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/p.png") 
+```
+
+# Anonymize data
+Our software can also be used to anonymize data. For that, navigate to the 'Anonymize data' folder. Then, choose a CSV file that can be used for
+anonymizing data. The software currently accepts only csv files. After that, select the columns that will be anonymized. After selecting the columns,
+you can select either to fill in the columns using random numbers or just encryption algorithms by clicking one of the options in the drop down menu named
+'How to anonymize data?'.
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/ad.png") 
+```
+
+# Zip and encrypt data
+The full project can be zipped and encrypted so that it can be easily shared with the rest of the community. For that, navigate to the 'Zip and encrypt data'
+tab. Then, enter the password you want, select the columns that you want to zip and encrypt, and then click on the 'Encrypt Project files'.
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/ed.png") 
+```
+
+
