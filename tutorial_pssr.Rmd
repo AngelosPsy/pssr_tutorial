@@ -1,7 +1,11 @@
 ---
 title: "Tutorial for the pssr R package"
-output: html_document
 author: "Angelos-Miltiadis Krypotos & Gaetan Mertens"
+output:
+  pdf_document: default
+  html_document: default
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
@@ -15,7 +19,7 @@ The rationale behind the design of the package can be found in the pre-print [A 
 
 
 # Installation instructions
-Before installing the software, make sure that you have the most recent versions of the following software installed: [R](https://cran.r-project.org), [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and [git](https://git-scm.com/]), [pandoc](https://github.com/jgm/pandoc). You can also chose between installing [MikTex](https://miktex.org/download) or [tinytex](https://yihui.name/tinytex/).
+Before installing the software, make sure that you have the most recent versions of the following software installed: [R](https://cran.r-project.org), [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and [git](https://git-scm.com/]), [pandoc](https://github.com/jgm/pandoc). You can also choose between installing [MikTex](https://miktex.org/download) or [tinytex](https://yihui.name/tinytex/).
 
 After that, start a new R session and paste the following commands in the R console.
 
