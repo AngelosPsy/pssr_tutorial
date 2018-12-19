@@ -2,8 +2,8 @@
 title: "Tutorial for the pssr R package"
 author: "Angelos-Miltiadis Krypotos & Gaetan Mertens"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
   md_document:
     variant: markdown_github
 ---
@@ -241,12 +241,28 @@ Homer, S. R., Deeprose, C., & Andrade, J. (2016). Negative mental imagery in pub
 </p>
 
 # Step four: Anonymize data
-The anonymize data tab can be used for anonymizing the data easily. Please note, though, that all functions are provided as an easy step ensuring anonymization of the data. However, all users should check whether indeed the data are fully anonymized before releasing them in public.
+The anonymize data tab can be used for anonymizing the data easily. Please note, though, that all functions are provided as an easy step ensuring anonymization of the data. However, all users should check whether indeed the data are fully anonymized before releasing them in public. For the sake of the example, we will open the "exampleDataSet.csv". These data are already anonymized but we have added an extra column with random age numbers.  The data set looks as follows:
 
-*To be filled in*
+```{r echo = FALSE}
+print(read.csv2("exampleDataSet.csv"))
+```
+
+For our example, we would want to remove the age column as, for an unknown reason, we are afraid could detect some of our participants back based on their age -- a bit unrealistic argument in the present case but we just use this column for example purposes. In order to fill in this column with random numbers, we will follow the steps mentioned in _Anonymize data_ section. Specifically, by using the _Anonymize data_ tab, we will click on the _browse_ button, and select the  CSV file with our data (here _exampleDataSet.csv_). If everything went fine, then we should be able to see the first 2 columns of the data in our browswer. Then, in the _Select Columns_ box, we can select the columns that we want to be filled in with random numbers (here the _age_ column). In the _How to anonymize data?_ box, there are different options for anonymizng the data. Here, we stick to the random option (the default). After we do that, the "Anonymized data" section should now show the first 5 lines of our data. Importantly, the columns that we have selectedto be anonyzimed have changed both in name (i.e., the original column name + the suffix "_anonym"), Lastly, in case we want the anonymized data to be saved in our working directory, we need to go under the _Do you want the data to be saved_ radio button and click on 'Yes' (in the example it was set to 'No').
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/anExample1.png") 
+```
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/anExample2.png") 
+```
 
 # Step five: Zip and encypt data
-Here, we just type in a password in the _Enter password_ field. Then, we select all subfolders by clicking on the names of the subfolders. Lastly, we click on the _Encrypt Project files_ button. If anything went as predicted, the directory where the zip file was located should be shown on screen.
+Here, we just type in a password in the _Enter password_ field (here the word 'password'). Then, we select the subfolders that we want to be encrypted (here the 'Analyses' and 'Material' subfolders). Lastly, we click on the _Encrypt Project files_ button. If anything went as predicted, the directory where the zip file was located should be shown on screen (here hidden for privacy issues).
+
+```{r  out.width = "80%", echo=FALSE}
+include_graphics("figures/encryptExample.png") 
+```
 
 # Step six: Record changes
 Although this is descibed as the sixth step, the tab named "Record changes" should be visited often during the whole project. Specifically, it is best to record as many changes as possible as this will provide a better view of the changes made throughout the whole project. In our example, we have just filled in a username and an email. Then, and every time we want to timestamp the changes made in the project, we just provide a brief description of the changes we have made (e.g., anonymized data) and then click on the 'timestamp changes'. Whenever we want to see if any changes have been made in the files, we can click on the 'track changes' button. 
