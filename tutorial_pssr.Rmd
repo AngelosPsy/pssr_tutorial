@@ -2,32 +2,20 @@
 title: "Tutorial for the pssr R package"
 author: "Angelos-Miltiadis Krypotos & Gaetan Mertens"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   md_document:
     variant: markdown_github
 ---
-
-<style>
-p.comment {
-background-color: "white";
-padding: 10px;
-border: 1px solid black;
-margin-left: 25px;
-border-radius: 5px;
-font-style: italic;
-}
-
-</style>
 
 ```{r setup, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This document provides a brief tutorial for the [pssr](https://github.com/AngelosPsy/pssr) R package. Specifically, we first provide instructions on how to (install the package)[#installation]. Then, we explain each tab of the package (one by one)[#initiat]. Lastly, we go through a [hypothetical example](#hexample). 
+This document provides a brief tutorial for the [pssr](https://github.com/AngelosPsy/pssr) R package. Specifically, we first provide instructions on how to [install the package](#installation). Then, we explain each tab of the package (one by one)[#initiat]. Lastly, we go through a [hypothetical example](#hexample). 
 
-Our R package provides a suite of functions for preregistrating and sharing data/materials. Although it was initially designed as an easy-to-use tool for experimental psychopathologists and other researchers in clinical psychology, it can be used from any researcher running experimental studies. The rationale behind the design of the package can be found in the pre-print [A Step-By-Step Guide on Preregistration and Effective Data Sharing for Psychopathology Research](https://osf.io/yvnfj/). Now, we move on to the main part of the tutorial.
+Our R package provides a suite of functions for preregistrating and sharing data/materials. Although it was initially designed as an easy-to-use tool for experimental psychopathologists and other researchers in clinical psychology, it can be used from any researcher running experimental studies. The rationale behind the design of the package can be found in the pre-print [A Step-By-Step Guide on Preregistration and Effective Data Sharing for Psychopathology Research](https://osf.io/yvnfj/).
 
 ## Installation instructions {#installation}
 Before installing the software, make sure that you have the most recent versions of the following software installed: [R](https://cran.r-project.org), [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and [git](https://git-scm.com/]), [pandoc](https://github.com/jgm/pandoc). You can also choose between installing [MikTex](https://miktex.org/download) or [tinytex](https://yihui.name/tinytex/).
@@ -38,19 +26,20 @@ After that, start a new R session and paste the following commands in the R cons
 if(!require(devtools)) { install.packages("devtools") } # Install devtools (in case you need to)
 devtools::install_github("AngelosPsy/pssr")
 ```
-If everything went as planned, the software is now ready to be used.
+If everything went as planned, the software is now ready to be used. To test that, check whether the [next step](#initiat) works. In case you have any problmes
+during installation, please open an issue [here](https://github.com/AngelosPsy/pssr_tutorial/issues). Instructions about how to open an issue are provided [here](https://help.github.com/articles/creating-an-issue/).
 
 ## Initiating a pssr session {#initiat}
-The main function is the  pssr::shiny_app() which initiates a new [shiny](https://shiny.rstudio.com/) session. As in any other function in R, just paste
+The main function is the  pssr::shiny_app() that initiates a new [shiny](https://shiny.rstudio.com/) session. As in any other function in R, just paste
 
 ```{r  eval = FALSE}
 pssr::shiny_app()
 ```
 
-in the R console. After doing that, a new window will appear. We now explain each tab of the software.
+in the R console. After doing that, a new window will appear. We now explain each tab of the software separately.
 
 ## Create project Tab
-For creating a new project, navigate to the 'Create project'. Then, place a name in the 'Project name' box and click on the 'Create new project'. In case you want to reopen an existing project, the user can just click on the 'Find existing project' box and navigate to an existing project. In case a folder is selected that was not created by the $pssr$, the program returns a warning. 
+For creating a new project, navigate to the 'Create project' tab. Then, place a name in the 'Project name' box and click on the 'Create new project'. In case you want to reopen an existing project, the user can just click on the 'Find existing project' box and navigate to an existing project. In case a folder is selected that was not created by the $pssr$, the program returns a warning. 
 
 When a project folder is created, the program automatically creates a directory with the project's name. Inside the directory the following subdirectories are created: "analyses", "data", "manuscript", "material", and "preregistration". 
 
@@ -59,11 +48,11 @@ include_graphics("figures/cp.png")
 ```
 
 ## Preregistration Tab
-For creating a preregistration document, you can enter a name in the "Enter name of the preregistration". Then, choose template you want to use so as
+For creating a preregistration document, you can enter a name in the "Enter name of the preregistration". Then, choose the template you want to use so as
 to form your preregistration. The pssr software supports 3 templates. These are the 'pss', the 'aspredicted' from the [aspredicted](aspredicted.org) website,
 and the 'osf' from the (osf)[osf.io] website. In case the 'pss' template is selected, then a new tab is presented, with each tab now having different boxes
 for every different piece of information that needs to be preregistrated (e.g., methods, statistical analyses). We describe more about this type of information
-in our paper.
+in our paper. An example of a pre-registration can be found [below](#preexample).
 
 In case the 'aspredicted' or the 'osf' template are selected, then a new window will appear. The user then can use manipulate the text using the (Rmarkdown)[https://rmarkdown.rstudio.com] template. For these templates, we use the (prereg)[https://cran.r-project.org/web/packages/prereg/index.html] package
 authored by (Frederik Aust)[https://github.com/crsh]. 
@@ -99,14 +88,14 @@ include_graphics("figures/ed.png")
 
 For this example, we are going to be based on the preregistration of the study ("Modality-specific dual-task interference on aversive memories")[https://osf.io/zgw3r/], written by Gaëtan Mertens, Vera Bouwman, Jonas Asmervik, & Iris M. Engelhard. Please note that we describe below more steps than the ones used in the preregistration.
 
-# Step one: Initialise a project
+# STEP ONE: Initialise a project
 First, we start by initializing a project by using the command `{r  eval = FALSE} pssr::shiny_app()`. If everything worked as planned, a new project is initialized.
 
-# Step two: Fill in the details in the 'Create Project' tab {#step2}
+# STEP TWO: Fill in the details in the 'Create Project' tab {#step2}
 
 Here, we first fill in the name of our project (i.e., Modality-specific dual-task interference on aversive memories). Then, we click on the _Create new project_ tab. On the window that appears, you can select the directory (i.e., computer folder) where you want your project folders to be stored. If anything goes as planned, the directory that the project is stored will be written on screen. Please note that everytime you want to open the projet, you can just click on the "Find existsting project", locate the folder that contains your project (for the example that would be the folder named "Modality-specific dual-task interference on aversive memories") and open it. Please note that if a folder is selected that was not created by the pssr, a warning will be returned.
 
-# Step three: Preregistration
+# STEP THREE: Preregistration {#preexample}
 
 Now that the project has been created (see (Step two)[#step2]), we are ready to create our preregistration document. For that, first click on the _preregistration_ tab. We first need to name our preregistration document. This could be something as simple as "preregistration". Then, we need to choose one of the available preregistration templates. The pssr provides 3 different preregistration templates: the pss, aspredicted, and cos templates. The last two templates were provided by the (prereg)[https://cran.r-project.org/web/packages/prereg/index.html] R package of (Frederik Aust)[https://github.com/crsh]. The first template was written by us and it is the template we describe in our relevant (paper)[https://osf.io/yvnfj/]. Here, we descibe only the pss template as for the other two, there other relevant resources (e.g., (https://osf.io/zab38/wiki/home/)[https://osf.io/zab38/wiki/home/]). 
 
@@ -325,7 +314,7 @@ Homer, S. R., Deeprose, C., & Andrade, J. (2016). Negative mental imagery in pub
 
 ---
 
-# Step four: Anonymize data
+# STEP FOUR: Anonymize data
 The anonymize data tab can be used for anonymizing the data easily. Please note, though, that all functions are provided as an easy step ensuring anonymization of the data. However, all users should check whether indeed the data are fully anonymized before releasing them in public. For the sake of the example, we will open the "exampleDataSet.csv". These data are already anonymized but we have added an extra column with random age numbers.  The data set looks as follows:
 
 ```{r echo = FALSE}
@@ -342,14 +331,14 @@ include_graphics("figures/anExample1.png")
 include_graphics("figures/anExample2.png") 
 ```
 
-# Step five: Zip and encypt data
+# STEP FIVE: Zip and encypt data
 Here, we just type in a password in the _Enter password_ field (here the word 'password'). Then, we select the subfolders that we want to be encrypted (here the 'Analyses' and 'Material' subfolders). Lastly, we click on the _Encrypt Project files_ button. If anything went as predicted, the directory where the zip file was located should be shown on screen (here hidden for privacy issues).
 
 ```{r  out.width = "80%", echo=FALSE}
 include_graphics("figures/encryptExample.png") 
 ```
 
-# Step six: Record changes
+# STEP SIX: Record changes
 Although this is descibed as the sixth step, the tab named "Record changes" should be visited often during the whole project. Specifically, it is best to record as many changes as possible as this will provide a better view of the changes made throughout the whole project. In our example, we have just filled in a username and an email. Then, and every time we want to timestamp the changes made in the project, we just provide a brief description of the changes we have made (e.g., anonymized data) and then click on the 'timestamp changes'. Whenever we want to see if any changes have been made in the files, we can click on the 'track changes' button. 
 
 As explained in our main paper, no new copies of the files are made. However, sometimes maybe the user wants to revert to an older version of the files. The _version control_ tab was designed for exactly this. For that, just click on the folders you want to revert to and then go to the commit you want to revert to using the _Go to Commit_ button. Please note that there should be at least one commit in order for this future to work. In case of no commits, the tab will return an error.
