@@ -2,8 +2,8 @@
 title: "Tutorial for the pssr R package"
 author: "Angelos-Miltiadis Krypotos & Gaëtan Mertens"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
   md_document:
     variant: markdown_github
 ---
@@ -13,18 +13,20 @@ library(knitr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-This is a brief tutorial for the 
-[pssr](https://github.com/AngelosPsy/pssr) R package. We first provide 
+Here, we provide a brief tutorial for the 
+[pssr](https://github.com/AngelosPsy/pssr) R package.
+The _pssr_ package provides a suite of functions for preregistrating and 
+sharing data/materials. Although it was initially designed as an easy-to-use 
+tool for experimental psychopathologists and other researchers acoss Clinical 
+psychology, it can also be used from any researcher running experimental 
+studies. 
+
+Here, we first provide 
 instructions on how to [install the package](#installation). Then, we explain
 each tab of the software [one by one](#initiat). Lastly,
 we go through a [hypothetical example](#hexample). 
-
-The _pssr_ package provides a suite of functions for preregistrating and 
-sharing data/materials. Although it was initially designed as an easy-to-use 
-tool for experimental psychopathologists and other researchers in Clinical 
-psychology, it can also be used from any researcher running experimental 
-studies. The rationale behind the design of the package can be found in the 
-preprint 
+The rationale behind the design of the package can be found in our  
+paper available here: 
 [A Step-By-Step Guide on Preregistration and Effective Data Sharing for Psychopathology Research](https://osf.io/yvnfj/).
 
 ## Installation instructions {#installation}
@@ -33,7 +35,8 @@ recent versions of the following software installed:
 [R](https://cran.r-project.org), 
 [Rtools](https://cran.r-project.org/bin/windows/Rtools/), and 
 [git](https://git-scm.com/]), [pandoc](https://github.com/jgm/pandoc). 
-You can also choose between installing [MikTex](https://miktex.org/download) or [tinytex](https://yihui.name/tinytex/) -- _tinytex_ is lighter and seems to be 
+You can also choose between installing [MikTex](https://miktex.org/download) or 
+[tinytex](https://yihui.name/tinytex/) -- _tinytex_ is lighter and seems to be 
 working fine for basic documents.
 
 After that, start a new R session and paste the following commands in the 
@@ -46,7 +49,8 @@ devtools::install_github("AngelosPsy/pssr")
 ```
 If everything went as planned, the software is now ready to be used. 
 To test that, check whether the [next step](#initiat) works. In case you 
-have any problems during installation, please open an issue [here](https://github.com/AngelosPsy/pssr_tutorial/issues). Instructions 
+have any problems during installation, please open an issue 
+[here](https://github.com/AngelosPsy/pssr_tutorial/issues). Instructions 
 about how to open an issue are provided 
 [here](https://help.github.com/articles/creating-an-issue/).
 
@@ -71,10 +75,10 @@ We now explain each tab of the software separately.
 ## Create project Tab
 For creating a new project, navigate to the 'Create project' tab. Then, 
 place a name in the 'Project name' box and click on the 'Create new project'. 
-In case you want to reopen an existing project, the user can just click on the 
+To reopen an existing project the user can just click on the 
 'Find existing project' box and navigate to an existing project. 
-In case a folder is selected that was not created by the _pssr_, the program ]
-returns a warning. 
+In case a folder is selected that was not created by the _pssr_, the program 
+will return a warning. 
 
 When a project folder is created, the program automatically creates a 
 directory with the project's name. Inside the directory the following 
@@ -88,15 +92,16 @@ include_graphics("figures/cp.png")
 ## Preregistration Tab
 For creating a preregistration document, you can enter a name in the 
 "Enter name of the preregistration". Then, choose the template you want 
-to use so as to form your preregistration. The pssr software supports 
+to use so as to form your preregistration. The _pssr_ software supports 
 3 templates. These are the 'pss', the 'aspredicted' from the 
 [aspredicted](aspredicted.org) website, and the 'osf' from the 
 [osf](osf.io) website. In case the 'pss' template is selected, 
 then a new tab is presented, with each tab now having different boxes
 for every different piece of information that needs to 
 be preregistrated (e.g., methods, statistical analyses).
-We describe more about this type of information
-in our paper. An example of a pre-registration can be found 
+We describe what type of information should be included in each 
+box in our paper. 
+An example of a pre-registration can be found 
 [below](#preexample).
 
 In case the 'aspredicted' or the 'osf' template are selected, 
@@ -125,7 +130,7 @@ anonymizing data. The software currently accepts only csv files. After that,
 select the columns that will be anonymized. After selecting the columns,
 you can select either to fill in the columns using random numbers or just 
 encryption algorithms by clicking one of the options in the drop down menu named
-'How to anonymize data?'.
+'_How to anonymize data?_'.
 
 ```{r  out.width = "80%", echo=FALSE}
 include_graphics("figures/ad.png") 
@@ -136,19 +141,21 @@ The full project can be zipped and encrypted so that it can be easily
 shared with the rest of the community. For that, navigate to the 
 'Zip and encrypt data' tab. Then, enter the password you want, select 
 the columns that you want to zip and encrypt, and then click on the 
-'Encrypt Project files'.
+'Encrypt Project files'. Please check with the your local ethic committee
+under which conditions you are allowed to share the data. 
 
 ```{r  out.width = "80%", echo=FALSE}
 include_graphics("figures/ed.png") 
 ```
 
-# Hypothetical example {#hexample}
+# Example of using the _pssr_ software {#hexample}
 
 For this example, we are going to be based on the preregistration of the study 
 ["Modality-specific dual-task interference on aversive memories"](https://osf.io/zgw3r/)
 , written by Gaëtan Mertens, Vera Bouwman, Jonas Asmervik, & Iris M. Engelhard. 
 Please note that we describe below more steps than the ones used 
-in the preregistration.
+in the preregistration. Also, we deviate from the preregistartion material in
+order to provide a more detailed example.
 
 # STEP ONE: Initialise a project
 First, we start by initializing a project by using the command 
@@ -156,21 +163,21 @@ First, we start by initializing a project by using the command
 If everything worked as planned, a new project is initialized.
 
 # STEP TWO: Fill in the details in the 'Create Project' tab {#step2}
-
-Here, we first fill in the name of our project (i.e., Modality-specific 
-dual-task interference on aversive memories). Then, we click on the 
+Here, we first need to fill in the name of our project (i.e., Modality-specific 
+dual-task interference on aversive memories). Then, we should click on the 
 _Create new project_ tab. On the window that appears, you can select 
 the directory (i.e., computer folder) where you want your project folders 
 to be stored. If anything goes as planned, the directory that the project is 
-stored will be written on screen. Please note that everytime you want to open 
-the projet, you can just click on the "Find existsting project", locate 
+stored will be printed on screen (e.g., C/Desktop/ProjectName). 
+Please note that everytime you want to open 
+the projet, you can just click on the "Find existting project", locate 
 the folder that contains your project (for the example that would be the 
 folder named "Modality-specific dual-task interference on aversive memories") 
 and open it. Please note that if a folder is selected that was not created 
-by the pssr, a warning will be returned.
+by _pssr_, a warning will be returned. This will mean that also some functions
+of the _pssr_ will not work (e.g., the zip function).
 
 # STEP THREE: Preregistration {#preexample}
-
 Now that the project has been created (see (Step two)[#step2]), we are ready 
 to create our preregistration document. For that, first click on the 
 _preregistration_ tab. We first need to name our preregistration document. 
@@ -180,7 +187,8 @@ choose one of the available preregistration templates. The pssr provides
 The last two templates were provided by the 
 [prereg](https://cran.r-project.org/web/packages/prereg/index.html) 
 R package of [Frederik Aust](https://github.com/crsh). 
-The first template was written by us and it is the template we describe in our relevant [paper](https://osf.io/yvnfj/). 
+The first template was written by us and it is the template we describe 
+in our relevant [paper](https://osf.io/yvnfj/). 
 Here, we descibe only the pss template as for the other two, 
 there other relevant resources 
 (e.g., [https://osf.io/zab38/wiki/home/](https://osf.io/zab38/wiki/home/)). 
@@ -475,7 +483,7 @@ The anonymize data tab can be used for anonymizing the data easily.
 Please note, though, that all functions are provided as an easy step 
 ensuring anonymization of the data. However, all users should check whether 
 indeed the data are fully anonymized before releasing them in public. 
-For the sake of the example, we will open the "exampleDataSet.csv". 
+For the sake of the example, we will open the "exampleDataSet.csv" file. 
 These data are already anonymized but we have added an extra column with random
   numbers.  The data set looks as follows:
 
@@ -484,9 +492,9 @@ print(read.csv2("exampleDataSet.csv"))
 ```
 
 For our example, we would want to remove the age column as, for an unknown 
-reason, we are afraid could detect some of our participants back based 
-on their age -- a bit unrealistic argument in the present case but we 
-just use this column for example purposes. In order to fill in this column 
+reason, we are afraid could trace some of our participants back based 
+on their age -- a bit unrealistic argument in the present case. 
+In order to fill in this column 
 with random numbers, we will follow the steps mentioned in _Anonymize data_ 
 section. Specifically, by using the _Anonymize data_ tab, we will click on 
 the _browse_ button, and select the  CSV file with our data 
@@ -524,8 +532,9 @@ include_graphics("figures/encryptExample.png")
 ```
 
 # STEP SIX: Record changes
-Although this is descibed as the sixth step, the tab named "Record changes" 
-should be visited often during the whole project. Specifically, it is best to 
+Although this is descibed as the sixth step, the "_Record changes_" tab 
+should be visited often during the whole project and not just in the end. 
+Specifically, it is best to 
 record as many changes as possible as this will provide a better view of the 
 changes made throughout the whole project. In our example, we have just filled 
 in a username and an email. Then, and every time we want to timestamp 
@@ -540,4 +549,5 @@ of the files. The _version control_ tab was designed for exactly this.
 For that, just click on the folders you want to revert to and then go 
 to the commit you want to revert to using the _Go to Commit_ button. 
 Please note that there should be at least one commit in order for this 
-future to work. In case of no commits, the tab will return an error.
+feature of the software to work. 
+In case of no commits, the tab will return an error.
