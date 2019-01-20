@@ -2,8 +2,8 @@
 title: "Tutorial for the pssr R package"
 author: "Angelos-Miltiadis Krypotos & Gaëtan Mertens"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   md_document:
     variant: markdown_github
 ---
@@ -155,7 +155,11 @@ For this example, we are going to be based on the preregistration of the study
 , written by Gaëtan Mertens, Vera Bouwman, Jonas Asmervik, & Iris M. Engelhard. 
 Please note that we describe below more steps than the ones used 
 in the preregistration. Also, we deviate from the preregistartion material in
-order to provide a more detailed example.
+order to provide a more detailed example. In some cases, we note, using the
+word _note_, some parts of the preregistrations that could have been better.
+Our goal is to show the reader that preregistrations that seem to be complete,
+miss some important information that could have made them more detailed. We
+extend on this issue also in our main paper.
 
 # STEP ONE: Initialise a project
 First, we start by initializing a project by using the command 
@@ -195,7 +199,7 @@ there other relevant resources
 
 In order to select the pssr template, the user can just select the template 
 from the drop down menu named _choose a pre-registration template_. 
-Then, click on the _+ Create_ button. After doing that, a new tab will be 
+Then, click on the _Create_ button. After doing that, a new tab will be 
 created, with separate boxes for each one of the fields that need 
 to be filled in. Here, we provide within boxes the inforation we have provided.
 
@@ -244,6 +248,13 @@ is expected after a visuospatial taxation task compared to an auditory
 taxation task. In addition, a greater reduction in vividness and emotionality 
 in auditory memories is expected after an auditory taxation task compared 
 to a visuospatial taxation task.
+
+_Note_ As also mentioned in the paper, better hypotheses would also specify
+the size of the effect -- something that is not done here. Also, the main
+hypotheses do not include the operationalization of some of the key variables
+(e.g., vividness, emotionality). This could be problematic given that we
+could have taken different measures of these variables, and used only the
+ones that satisfied our hypotheses.
 
 ---
 
@@ -420,6 +431,8 @@ which we considered sufficient.
 
 Data collection will continue until valid data for 60 participants is obtained.
 
+_Note_ No power analysis has been performed here. Also, no other reason is given
+as to why we selected this number.
 ---
 
 ## Confirm hypotheses
@@ -444,6 +457,7 @@ vividness and emotionality difference scores in the auditory task using
  and emotionality in the experimental conditions compared 
  to the control condition. 
 
+
 ---
 
 ## Disconfirm hypotheses
@@ -452,6 +466,11 @@ vividness and emotionality difference scores in the auditory task using
 
 Any evidence opposite to the previous predictions would be provide 
 first evidence of disconformination of our hypotheses.
+
+_Note_ This could have been a typical case of yes/no logic. Since we use
+Bayesian analyses, it could have been better to also specificy the size of
+effect that provide insufficient evidence for (dis-)confirming our hypotheses.
+This is not done here.
 
 ---
 
